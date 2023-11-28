@@ -23,5 +23,5 @@ https://dl15viycgs.feishu.cn/docx/U3TVdUIxYoqMPNxKmdycBA17ntf
 手机APP，其中
 - 前端采用Vue，
 - 后端采用微服务架构，仓库地址：https://github.com/SoftwareEngineeringMedical/Tangxiaozhi-Rehibiliation-Backend
-- 数据库为MySQL 仓库地址：https://github.com/SoftwareEngineeringMedical/Tangxiaozhi-Database。
+- 数据库为MySQL 仓库地址：https://github.com/SoftwareEngineeringMedical/Tangxiaozhi-Database
 
