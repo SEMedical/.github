@@ -13,11 +13,21 @@ https://dl15viycgs.feishu.cn/docx/U3TVdUIxYoqMPNxKmdycBA17ntf
 
 本小组本学期实现运动管理、患者管理子系统、血糖监测子系统？。
 ## 需求
-- [x] 用例图
-- [ ] 活动图
+- [x] 用例图 参考之前的飞书文档
+
+- [ ] 活动图 
+
+  部分完成 [参考链接](https://github.com/SoftwareEngineeringMedical/.github/blob/main/ActivityDiagrams)
 ## 设计
+
+- [ ] WebApp原型
+
+  部分完成 [参考链接](https://github.com/SoftwareEngineeringMedical/.github/tree/main/Prototype%20Design)
+
 - [ ] 类图
+
 - [ ] CRC
+
 - [ ] 时序图
 ## 开发
 手机APP，其中
