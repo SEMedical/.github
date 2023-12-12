@@ -191,19 +191,68 @@
 6. 无法连接血糖仪，提醒用户多尝试连接几次血糖仪。
 
 ## 5. 外部接口需求
-
 ### 5.1 用户接口
 
+#### 结构设计
+##### 用户交互设计
+
+ 通过在首页点击血糖日历，就可以进入到血糖日历的首页，默认界面为显示实时血糖。
+ ![image](https://github.com/SoftwareEngineeringMedical/.github/assets/103842499/700fe227-7fa5-4577-81c1-0927667ec7b5)
+
+ 实时血糖界面的主题是血糖在一天内的趋势图，图上用手指靠近任意一点，就可以显示该点血糖的详细信息，如下图。阴影部分表示运动，折线图下方是当前血糖值，通过红黄蓝来提醒用户是正常、低还是高血糖。血糖值下方是小贴士。
+ ![image](https://github.com/SoftwareEngineeringMedical/.github/assets/103842499/c3c5d235-548b-4349-9ece-8739e2175571)
+
+ 界面布局紧凑，大小合理，例如血糖日历有两类界面，当选中一类时，其字体会加粗放大并跳转到相应界面。
  
-
-### 5.2   软件接口
-
+ 对于血糖记录，提供按日、周、月等跨度查看的选择。系统默认选项为日，用户也可以自己修改。参考Win10的日历设计，对日历选择进行了优化：先显示当前月的界面（选择日），点击当前月的文字就可以跳转到一个显示周的界面（选择周），标题仍然是月， 26~2日，3日到9日，10~16日....等等，再点击一下就能直接显示12个月（选择月）。不能选择的日期、月、周显示为灰色，防止用户做出错误的动作。
  
-
-### 5.3   硬件接口
-
+ 对于运动方案，即使没有运动方案，用户也可以运动。运动方案的生成、运动过程中、检测是否符合运动前提条件等等界面均可以被打断，且均有相应警告。当用户不满意生成的运动方案时，可以选择再次生成。
  
-
+ 本系统的UI/UX设计遵循了“把控制权交给用户”与“减轻用户的记忆负担”等原则。
  
+ 当然，本系统的UI虽然由两个人设计，但风格是一致的。
+ 
+##### 体系结构设计
+### 5.2	软件接口
 
-### 5.4 通信接口
+| 功能                           | Restful API              | Java参数(输入)                    | Java函数返回值             |
+|-------------------------------|--------------------------|----------------------------------|---------------------------|
+| 注册                          | POST /user               | 无                               | Integer(user_id)          |
+| 注销                          | DELETE /user/{id}        | Integer(user_id)                 | void                      |
+| 登录                          | PUT /user/{id}           | Integer(user_id), User           | Boolean                   |
+| 查看用户个人信息               | GET /user/{id}           | Integer(user_id)                 | User                      |
+| 获取血糖数据并记录              | POST /glycemia/{user_id} | Integer(user_id), Glycemia       | Boolean                   |
+| 实时血糖数据的查询               | GET /glycemia/{user_id}  | Integer(user_id)                 | List<Glycemia>            |
+| 查看运动计划                    | GET /scenario/{user_id}  | Integer(user_id)                 | Scenario                  |
+| 创建/修改运动计划               | PUT /scenario/{user_id}  | Integer(user_id), Scenario       | Boolean                   |
+| 删除当前运动计划                | DELETE /scenario/{user_id}| Integer(user_id)                 | Void                      |
+| 查询是否符合运动的前提条件       | GET /profile/{user_id}   | Integer(user_id)                 | Boolean                   |
+| 查询运动的复杂性条件             | GET /complication/{user_id}| Integer(user_id)                | Boolean                   |
+| 记录运动                       | POST /exercise/{user_id}  | Integer(user_id), Exercise       | Boolean                   |
+| 查看当日运动                    | GET /exercise/{user_id}?date={Date}| Integer(user_id), Date  | List<Exercise>            |
+| 侦测实时心率                    | GET /heartrate/{user_id}  | Integer(user_id)                 | Heartrate                 |
+| 查看当日血糖                    | GET /glycemia/{user_id}?Date={Date}| Integer(user_id), Date  | List<Glycemia>            |
+| 检查身体                       | POST /examination/{user_id}| Integer(user_id), Examination   | Boolean                   |
+| 查看体检结果                    | GET /examination/{user_id} | Integer(user_id)                 | Examination (Markdown)   |
+
+
+### 5.3	硬件接口
+用户通过组装传感器并将其贴敷到身上，打开本系统的APP，安卓手机需开启NFC功能。苹果手机用顶部贴近传感器激活，安卓手机用背部靠近传感器激活.
+
+### 5.4	通信接口
+#### 安卓APP与后端(Spring Boot)之间的通信:
+1.	安卓APP与后端之间通常使用HTTP/HTTPS协议进行通信。
+2.	安卓APP通过设备的网络连接（例如Wi-Fi、移动数据）建立与后端服务器的TCP连接。
+3.	使用HTTP请求（GET、POST、PUT等）发送数据到后端，后端通过HTTP响应返回数据。
+#### 后端(Spring Boot)与MySQL数据库之间的通信:
+1.	后端通过JDBC（Java Database Connectivity）等数据库连接方式，建立与MySQL数据库的TCP连接。
+2.	使用SQL协议执行数据库查询、更新等操作。
+#### 后端(Spring Boot)与Nginx之间的通信:
+1.	Nginx作为反向代理服务器，接收来自客户端（包括安卓APP）的HTTP请求。
+2.	Nginx通过配置的代理规则将请求转发给后端的Spring Boot服务。
+3.	Nginx和后端之间通过TCP连接进行通信，可以使用HTTP或FastCGI等协议。
+#### Docker容器之间的通信:
+1.	安卓APP与后端、后端与MySQL数据库之间的通信，都通过Docker网络进行。Docker容器可以通过在同一网络中来建立相互通信。
+2.	使用Docker的网络命名空间，容器可以通过容器名称或IP地址相互访问。
+3.	在Docker Compose或其他编排工具中定义容器间的网络关系。
+
