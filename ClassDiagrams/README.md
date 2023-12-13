@@ -21,7 +21,7 @@
 | **用户健康档案**             | 事物               | 拒绝：6不适用                        |
 | **血糖监测服务**             | 组织单元或外部实体 | 拒绝：3、4、5、6适用，但是1、2不符合 |
 
-![Glycemia Record Subsystem](ClassDiagrams/血糖监测子系统类图.png)
+![Glycemia Record Subsystem](血糖监测子系统类图.png)
 
 ## 识别分析类——运动管理子系统
 | **潜在类**                 | **一般分类** | **适用的特征编号**      |
@@ -34,4 +34,4 @@
 | **运动方案界面**           | 外部实体     | 接受，4不适用           |
 | **发声警报（TODO）**       | 外部实体     | 接受，2、3、4、5、6适用 |
 
-![Glycemia Record Subsystem](ClassDiagrams/运动管理子系统类图.jpg)
+![Glycemia Record Subsystem](运动管理子系统类图.jpg)
