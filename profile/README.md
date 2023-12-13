@@ -25,17 +25,24 @@
 - [ ] SRS文档
 
   参考模板 [链接]( https://www.softwarereqs.com/files/Software%20Requirements%20Specification%20Template.docx)
+  
+  部分完成 [参考链接](../SRS/SRS.md)
 ## 设计
+
+原文档：[金山文档](https://www.kdocs.cn/l/cu1WgoGPlitl)
 
 - [x] WebApp原型
 
   完成 [参考链接](https://github.com/SoftwareEngineeringMedical/.github/tree/main/Prototype%20Design)
 
-- [x] 类图
+- [x] 类图 [参考链接](https://github.com/SoftwareEngineeringMedical/.github/blob/main/ClassDiagrams)
+
+- [x] 架构图 [参考链接](https://github.com/SoftwareEngineeringMedical/.github/blob/main/ArchitectureDesign)
 
 - [ ] CRC
 
 - [ ] 时序图
+
 ## 开发
 手机APP，其中
 - 前端采用Vue，
