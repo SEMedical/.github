@@ -763,7 +763,7 @@ SQL注入攻击是一种常见的网络攻击方式，为了防止这种攻击�
 ### 三、类图分析
 #### 3.1 运动子系统类图及其分析
 
-![ClassDiagram1](https://github.com/SoftwareEngineeringMedical/.github/blob/main/ClassDiagrams/运动管理子系统类图.jpg)
+![ClassDiagram1](https://github.com/SoftwareEngineeringMedical/.github/blob/main/ClassDiagrams/运动管理子系统类图.png)
 
 运动子系统共有七个类。
 
