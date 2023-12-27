@@ -2,6 +2,10 @@
 ## 总述
 原文档：
 [飞书文档](https://dl15viycgs.feishu.cn/docx/U3TVdUIxYoqMPNxKmdycBA17ntf)
+第一次答辩：需求分析 https://dl15viycgs.feishu.cn/docx/U3TVdUIxYoqMPNxKmdycBA17ntf?pre_pathname=%2Fdrive%2Fhome%2F
+第一次作业：SRS文档 https://github.com/SoftwareEngineeringMedical/.github/blob/main/SRS/SRS.md
+第二次答辩：设计分析 https://www.kdocs.cn/l/cu1WgoGPlitl
+第二次作业：SDS文档 https://kdocs.cn/l/cbABnJFP4TiX
 
 我们小组和另外两个小组共同加入了赵钦佩老师参与的上海科委“科技创新行动计划”国际科技合作项目，
 基于饮食运动深度强化学习的糖尿病个性化精准血糖管理。该项目的最终目的是基于糖尿病患者的饮食、运动、用药这三方面，
