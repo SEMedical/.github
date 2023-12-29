@@ -1,8 +1,8 @@
-name: Architecture Decision Description  Template
+name: Architecture Decision Description Template
 description: SDS
 title: "[Decision]: "
 labels: ["feature", "triage"]
-projects: ["Tangxiaozhi/1"]
+projects: ["Tangxiaozhi"]
 assignees:
   - octocat
 body:
@@ -26,12 +26,26 @@ body:
       placeholder: Tell us what you see!
     validations:
       required: true
-  - type: input
+  - type: dropdown
     id: category
     attributes:
       label: Category(Required)
       description: Specify the design category that the issue and resolution address (e.g., data design,content structure, component structure, integration,presentation).
       placeholder: Tell us what you see!
+      options:
+        - data design
+        - content structure
+        - component structure
+        - integration
+        - document
+        - api
+        - algorithm
+        - deployment
+        - requirement
+        - feature
+        - presentation
+      default:
+        - api
     validations:
       required: true
   - type: textarea
