@@ -31,7 +31,6 @@ body:
     attributes:
       label: Category(Required)
       description: Specify the design category that the issue and resolution address (e.g., data design,content structure, component structure, integration,presentation).
-      placeholder: Tell us what you see!
       options:
         - data design
         - content structure
