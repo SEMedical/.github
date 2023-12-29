@@ -44,8 +44,7 @@ body:
         - requirement
         - feature
         - presentation
-      default:
-        - api
+      default: 7
     validations:
       required: true
   - type: textarea
